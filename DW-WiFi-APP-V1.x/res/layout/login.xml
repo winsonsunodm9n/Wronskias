@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_md"
+    tools:context="dw.wifi.server_test.WifiServerControlActivity" >
+
+    <Button
+        android:id="@+id/btnFastTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="@string/fasttest"
+        android:textColor="@color/blue" />
+
+    <Button
+        android:id="@+id/btnServerTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnFastTest"
+        android:layout_below="@+id/btnWifiCfg"
+        android:text="@string/servertest"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnFastTest"
+        android:layout_alignBottom="@+id/btnFastTest"
+        android:layout_toLeftOf="@+id/btnFastTest"
+        android:text="一："
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnWifiCfg"
+        android:layout_alignBottom="@+id/btnWifiCfg"
+        android:layout_toLeftOf="@+id/btnWifiCfg"
+        android:text="二："
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/red"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/btnWifiCfg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFastTest"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="@string/wificfg"
+        android:textColor="@color/blue" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnServerTest"
+        android:layout_alignBottom="@+id/btnServerTest"
+        android:layout_toLeftOf="@+id/btnServerTest"
+        android:text="三："
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/blue" />
+
+</RelativeLayout>

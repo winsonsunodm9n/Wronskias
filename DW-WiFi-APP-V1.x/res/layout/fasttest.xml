@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_md" >
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toggleBeepBtn"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ledlight" />
+
+    <ToggleButton
+        android:id="@+id/toggleLedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/toggleBeepBtn"
+        android:text="ToggleButton"
+        android:textOff="开灯"
+        android:textOn="关灯" />
+
+    <ToggleButton
+        android:id="@+id/toggleBeepBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toggleLedBtn"
+        android:layout_centerHorizontal="true"
+        android:text="ToggleButton"
+        android:textOff="开蜂鸣器"
+        android:textOn="关蜂鸣器" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButton1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/beepopen" />
+
+</RelativeLayout>
