@@ -33,7 +33,6 @@ public class LoginActivity extends Activity {
 		btnFastTest.setOnClickListener(new ButtonClickEvent());
 //		btnTempTest.setOnClickListener(new ButtonClickEvent());
 	}
-
 	// ----------------------------------------------------清除按钮、发送按钮
 	class ButtonClickEvent implements View.OnClickListener {
 		public void onClick(View v) {
