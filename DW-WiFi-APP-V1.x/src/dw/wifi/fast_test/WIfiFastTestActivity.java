@@ -5,11 +5,13 @@ import dw.wifi.main.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class WIfiFastTestActivity extends Activity {
 	private ToggleButton toggleLedBtn, toggleBeepBtn;
+	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class WIfiFastTestActivity extends Activity {
 		
 		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
 		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
+		
+		imageLedView = (ImageView) findViewById(R.id.imageLedView);
+		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
 		
 		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
@@ -51,15 +56,19 @@ public class WIfiFastTestActivity extends Activity {
 			if (buttonView == toggleLedBtn) {
 				if (isChecked) {
 					cfgThread.Led_On();
+					imageLedView.setImageResource(R.drawable.ledlight);
 				} else {
 					cfgThread.Led_Off();
+					imageLedView.setImageResource(R.drawable.ledclose);
 				}
 			}
 			else if (buttonView == toggleBeepBtn) {
 				if (isChecked) {
 					cfgThread.Beep_On();
+					imageBeepView.setImageResource(R.drawable.beepopen);
 				} else {
 					cfgThread.Beep_Off();
+					imageBeepView.setImageResource(R.drawable.beepclose);
 				}
 			}
 		}
