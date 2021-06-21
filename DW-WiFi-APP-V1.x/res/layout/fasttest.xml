@@ -47,4 +47,15 @@
         android:textOff="开蜂鸣器"
         android:textOn="关蜂鸣器" />
 
+    <ToggleButton
+        android:id="@+id/toggleTestBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toggleLedBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="ToggleButton" 
+        android:textOff="toast test0"
+        android:textOn="toast test1"/>
+
 </RelativeLayout>

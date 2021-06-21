@@ -51,12 +51,7 @@ public class Esp8266Connect extends Thread{
 			e1.printStackTrace();
 		}
     	while(connect_flags)
-    	{
-    		if(!connect_flags)
-    		{
-    			//System.out.println("退出连接wifi模组进程.");
-    			break;
-    		}
+    	{    		
     		try {
 				line = reader.readLine();
 			} catch (IOException e) {
@@ -68,7 +63,16 @@ public class Esp8266Connect extends Thread{
 //    		 if(line.equals("Led close OK")){
 //    			mHandler.sendEmptyMessage(2);
 //    		}
-    		mHandler.sendEmptyMessage(1);
+    		   		
+    		if(!connect_flags)
+    		{
+    			//System.out.println("退出连接wifi模组进程.");
+    			break;
+    		}
+    		else
+    		{    			
+    			mHandler.sendEmptyMessage(1);
+    		}
     	}
     } 
     @SuppressLint("HandlerLeak")
