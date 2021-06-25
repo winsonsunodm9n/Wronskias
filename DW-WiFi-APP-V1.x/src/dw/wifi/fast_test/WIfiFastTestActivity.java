@@ -20,6 +20,8 @@ public class WIfiFastTestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fasttest);
 		
+		toast=Toast.makeText(this, "", Toast.LENGTH_SHORT);
+		
 		cfgThread = new Esp8266Connect();
 		cfgThread.recive_para(WIfiFastTestActivity.this);
 		cfgThread.start();
@@ -75,16 +77,11 @@ public class WIfiFastTestActivity extends Activity {
 			}
 			else if (buttonView == toggleTestBtn) {
 				if (isChecked) {
-//					Toast.makeText(WIfiFastTestActivity.this, "Test On", Toast.LENGTH_SHORT).show();
-					toast=Toast.makeText(WIfiFastTestActivity.this, "ToastÔÚÆäËû", Toast.LENGTH_SHORT); 
+					toast.setText("Test On");
 					toast.show(); 
 				} else {
-//					Toast.makeText(getApplicationContext(), "Test Off", Toast.LENGTH_SHORT).show();
-					toast=Toast.makeText(WIfiFastTestActivity.this, "Test Off", Toast.LENGTH_SHORT); 
+					toast.setText("Test Off");
 					toast.show(); 
-//					toast.setText("");
-//			        toast.setDuration(duration);
-//			        toast.show();
 				}
 			}
 			

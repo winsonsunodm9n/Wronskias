@@ -26,9 +26,12 @@ public class Esp8266Connect extends Thread{
 	static String line;
 	static  boolean connect_flags = false;
 	static Context WsActivity;
-    @Override  
+	public Toast toast;
+    @SuppressLint("ShowToast")
+	@Override  
     public void run()  
     {  
+//    	toast = Toast.makeText(WsActivity,"",Toast.LENGTH_SHORT);
     	try {
 			socket = new Socket(ServerIp, ServerPort);
 			if(socket == null){
@@ -51,7 +54,7 @@ public class Esp8266Connect extends Thread{
 			e1.printStackTrace();
 		}
     	while(connect_flags)
-    	{    		
+    	{    
     		try {
 				line = reader.readLine();
 			} catch (IOException e) {
@@ -82,10 +85,16 @@ public class Esp8266Connect extends Thread{
 	        public void handleMessage(Message msg) {
 	            switch (msg.what) {
 	            case 1:
-	            		Toast.makeText(WsActivity, line, Toast.LENGTH_SHORT).show();
+	            		if(toast == null)
+	            		{
+	            			 toast = Toast.makeText(WsActivity,"",Toast.LENGTH_SHORT);
+	            		}
+		            	toast.setText(line);
+						toast.show(); 
 	            	break;
 	            case 2:
-            			Toast.makeText(WsActivity, line, Toast.LENGTH_SHORT).show();
+            			toast.setText(line);
+    					toast.show(); 
             		break;	
 	            }
 	        }
