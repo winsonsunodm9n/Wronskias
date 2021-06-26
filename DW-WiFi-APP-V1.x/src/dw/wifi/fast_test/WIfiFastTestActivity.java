@@ -13,19 +13,15 @@ public class WIfiFastTestActivity extends Activity {
 	private ToggleButton toggleLedBtn, toggleBeepBtn, toggleTestBtn;
 	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
-	
-	private Toast toast;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fasttest);
 		
-		toast=Toast.makeText(this, "", Toast.LENGTH_SHORT);
-		
 		cfgThread = new Esp8266Connect();
 		cfgThread.recive_para(WIfiFastTestActivity.this);
 		cfgThread.start();
-		toggleTestBtn = (ToggleButton) findViewById(R.id.toggleTestBtn);
+		
 		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
 		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
 		
@@ -34,7 +30,6 @@ public class WIfiFastTestActivity extends Activity {
 		
 		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
-		toggleTestBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
@@ -75,16 +70,6 @@ public class WIfiFastTestActivity extends Activity {
 					imageBeepView.setImageResource(R.drawable.beepclose);
 				}
 			}
-			else if (buttonView == toggleTestBtn) {
-				if (isChecked) {
-					toast.setText("Test On");
-					toast.show(); 
-				} else {
-					toast.setText("Test Off");
-					toast.show(); 
-				}
-			}
-			
 		}
 	}
 	@Override
