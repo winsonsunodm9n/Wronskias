@@ -13,10 +13,13 @@ public class WIfiFastTestActivity extends Activity {
 	private ToggleButton toggleLedBtn, toggleBeepBtn, toggleTestBtn;
 	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
+	public Toast toast;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fasttest);
+		
+		toast = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 		
 		cfgThread = new Esp8266Connect();
 		cfgThread.recive_para(WIfiFastTestActivity.this);
@@ -38,12 +41,14 @@ public class WIfiFastTestActivity extends Activity {
 		if(cfgThread.connect_state()){
 			toggleLedBtn.setEnabled(true);
 			toggleBeepBtn.setEnabled(true);
-			Toast.makeText(WIfiFastTestActivity.this,"连接wifi成功", Toast.LENGTH_SHORT).show(); 
+			toast.setText("连接wifi成功");
+			toast.show(); 
 		}
 		else{
 			toggleLedBtn.setEnabled(false);
 			toggleBeepBtn.setEnabled(false);
-			Toast.makeText(WIfiFastTestActivity.this,"连接失败 请重新尝试", Toast.LENGTH_SHORT).show(); 
+			toast.setText("连接失败 请重新尝试");
+			toast.show(); 
 		}
 	}
 	class ToggleButtonCheckedChangeEvent implements

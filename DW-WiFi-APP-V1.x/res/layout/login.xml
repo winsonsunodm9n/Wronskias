@@ -78,13 +78,4 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/blue" />
 
-    <ImageButton
-        android:id="@+id/imageFastBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnServerTest"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/fasttest_l" />
-
 </RelativeLayout>
