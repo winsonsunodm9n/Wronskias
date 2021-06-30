@@ -5,12 +5,34 @@
     android:background="@drawable/bg_md"
     tools:context="com.example.mysocketclienttest.MainActivity" >
 
+    <ImageView
+        android:id="@+id/imageLedView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/ledclose" />
+
+    <ImageView
+        android:id="@+id/imageBeepView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageLedView"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/beepclose" />
+
     <ToggleButton
         android:id="@+id/toggleLedBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/imageLedView"
+        android:layout_below="@+id/imageLedView"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="16dp"
+        android:text="ToggleButton"
         android:textOff="开灯"
         android:textOn="关灯" />
 
@@ -18,9 +40,11 @@
         android:id="@+id/toggleBeepBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toggleLedBtn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
+        android:layout_alignBaseline="@+id/toggleLedBtn"
+        android:layout_alignBottom="@+id/toggleLedBtn"
+        android:layout_alignRight="@+id/imageBeepView"
+        android:layout_marginRight="36dp"
+        android:text="ToggleButton"
         android:textOff="开蜂鸣器"
         android:textOn="关蜂鸣器" />
 

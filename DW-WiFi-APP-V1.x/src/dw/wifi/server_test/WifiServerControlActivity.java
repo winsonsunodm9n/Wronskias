@@ -19,6 +19,7 @@ import android.widget.ToggleButton;
 public class WifiServerControlActivity extends Activity {
 	private ImageView imageLed;
 	private ToggleButton toggleLedBtn, toggleBeepBtn;
+	private ImageView imageLedView, imageBeepView;
 	HeartBeatThread myThread = null;
 	static BufferedReader reader = null;
 	static String line;
@@ -37,7 +38,9 @@ public class WifiServerControlActivity extends Activity {
 //		ServerConnect.connect(WifiServerActivity.this);		
 //		ServerConnect.user_register(cmd, WifiServerActivity.this);
 		
-//		imageLed = (ImageView) findViewById(R.id.imageLed);
+		imageLedView = (ImageView) findViewById(R.id.imageLedView);
+		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
+		
 		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
 		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
 		
@@ -109,18 +112,20 @@ public class WifiServerControlActivity extends Activity {
 				boolean isChecked) {
 			if (buttonView == toggleLedBtn) {
 				if (isChecked) {
-//					imageLed.setImageResource(R.drawable.bulbon);
 					myThread.Led_On();
+					imageLedView.setImageResource(R.drawable.ledlight);
 				} else {
-//					imageLed.setImageResource(R.drawable.bulboff);
 					myThread.Led_Off();
+					imageLedView.setImageResource(R.drawable.ledclose);
 				}
 			}
 			else if (buttonView == toggleBeepBtn) {
 				if (isChecked) {
 					myThread.Beep_On();
+					imageBeepView.setImageResource(R.drawable.beepopen);
 				} else {
 					myThread.Beep_Off();
+					imageBeepView.setImageResource(R.drawable.beepclose);
 				}
 			}
 		}
