@@ -17,7 +17,6 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class WifiServerControlActivity extends Activity {
-	private ImageView imageLed;
 	private ToggleButton toggleLedBtn, toggleBeepBtn;
 	private ImageView imageLedView, imageBeepView;
 	HeartBeatThread myThread = null;
@@ -26,7 +25,7 @@ public class WifiServerControlActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.servercontrol);
 				
 		myThread = new HeartBeatThread();
 		Bundle bundle = this.getIntent().getExtras();

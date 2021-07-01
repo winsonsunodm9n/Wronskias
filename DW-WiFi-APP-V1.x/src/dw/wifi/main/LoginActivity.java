@@ -3,12 +3,10 @@ package dw.wifi.main;
 import dw.wifi.config.WiFiConfigActivity;
 import dw.wifi.fast_test.WIfiFastTestActivity;
 import dw.wifi.server_test.WifiServerConnectActivity;
-import dw.wifi.temperature.TempTestActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,8 +16,8 @@ public class LoginActivity extends Activity {
 	private Button btnServerTest;
 	private Button btnWifiCfg;
 	private Button btnFastTest;
-	private Button btnTempTest;
-//	private ImageButton imageFastBtn;
+//	private Button btnTempTest;
+	private ImageButton imageFastBtn, imageConfigBtn, imageServerBtn;
 	@SuppressLint("WorldReadableFiles")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +26,14 @@ public class LoginActivity extends Activity {
 
 		btnServerTest = (Button) findViewById(R.id.btnServerTest);
 		btnWifiCfg = (Button) findViewById(R.id.btnWifiCfg);
-		btnFastTest = (Button) findViewById(R.id.btnFastTest);	
-//		imageFastBtn = (ImageButton) findViewById(R.id.imageFastBtn);
+		btnFastTest = (Button) findViewById(R.id.btnFastTest);
+		
+		imageFastBtn = (ImageButton) findViewById(R.id.imageFastBtn);
+		imageConfigBtn = (ImageButton) findViewById(R.id.imageConfigBtn);
+		imageServerBtn = (ImageButton) findViewById(R.id.imageServerBtn);
+		imageFastBtn.getBackground().setAlpha(0);//0~255透明度值
+		imageConfigBtn.getBackground().setAlpha(0);//0~255透明度值
+		imageServerBtn.getBackground().setAlpha(0);//0~255透明度值
 		
 		btnServerTest.setOnClickListener(new ButtonClickEvent());
 		btnWifiCfg.setOnClickListener(new ButtonClickEvent());
