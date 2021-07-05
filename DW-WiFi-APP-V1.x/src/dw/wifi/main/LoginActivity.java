@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -38,40 +39,81 @@ public class LoginActivity extends Activity {
 		btnServerTest.setOnClickListener(new ButtonClickEvent());
 		btnWifiCfg.setOnClickListener(new ButtonClickEvent());
 		btnFastTest.setOnClickListener(new ButtonClickEvent());
-//		imageFastBtn.setOnClickListener(new ButtonClickEvent());
-//		imageFastBtn.setOnTouchListener(new View.OnTouchListener(){            
-//		    public boolean onTouch(View v, MotionEvent event) {               
-//		            if(event.getAction() == MotionEvent.ACTION_DOWN){       
-//		               //重新设置按下时的背景图片  
-//		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.android_btn_pressed));                              
-//		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
-//		                //再修改为抬起时的正常图片  
-//		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.android_btn));     
-//		            }  
-//		            return false;       
-//		    }       
-//		});
+		
+		imageFastBtn.setOnClickListener(new ButtonClickEvent());
+		imageConfigBtn.setOnClickListener(new ButtonClickEvent());
+		imageServerBtn.setOnClickListener(new ButtonClickEvent());
+		imageFastBtn.setOnTouchListener(new View.OnTouchListener(){            
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){       
+		               //重新设置按下时的背景图片  
+		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.fasttest_l_b));                              
+		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
+		                //再修改为抬起时的正常图片  
+		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.fasttest_l));     
+		            }  
+				return false; 
+			}       
+		});
+		imageConfigBtn.setOnTouchListener(new View.OnTouchListener(){            
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){       
+		               //重新设置按下时的背景图片  
+		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.config_l_b));                              
+		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
+		                //再修改为抬起时的正常图片  
+		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.config_l));     
+		            }  
+				return false; 
+			}       
+		});
+		imageServerBtn.setOnTouchListener(new View.OnTouchListener(){            
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){       
+		               //重新设置按下时的背景图片  
+		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.servertest_l_b));                              
+		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
+		                //再修改为抬起时的正常图片  
+		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.servertest_l));     
+		            }  
+				return false; 
+			}       
+		});
 	}
 	// ----------------------------------------------------清除按钮、发送按钮
 	class ButtonClickEvent implements View.OnClickListener {
 		public void onClick(View v) {
 
-			if (v == btnServerTest) {
-				Intent intent = new Intent(LoginActivity.this,WifiServerConnectActivity.class);  
+			if (v == btnFastTest) {
+				Intent intent = new Intent(LoginActivity.this,WIfiFastTestActivity.class);  
                 startActivity(intent);	
 			}
 			else if(v == btnWifiCfg){
 				Intent intent = new Intent(LoginActivity.this,WiFiConfigActivity.class);  
                 startActivity(intent);				
 			}
-			else if(v == btnFastTest){
+			else if(v == btnServerTest){
+                Intent intent = new Intent(LoginActivity.this,WifiServerConnectActivity.class);  
+                startActivity(intent);
+			}
+			else if(v == imageFastBtn){
 				Intent intent = new Intent(LoginActivity.this,WIfiFastTestActivity.class);  
                 startActivity(intent);				
 			}
-//			else if(v == imageFastBtn){
-//				Intent intent = new Intent(LoginActivity.this,WIfiFastTestActivity.class);  
-//                startActivity(intent);				
-//			}
+			else if(v == imageConfigBtn){
+				Intent intent = new Intent(LoginActivity.this,WiFiConfigActivity.class);  
+                startActivity(intent);				
+			}
+			else if(v == imageServerBtn){
+				Intent intent = new Intent(LoginActivity.this,WifiServerConnectActivity.class);  
+                startActivity(intent);				
+			}
 		}
 	}
 	@Override
