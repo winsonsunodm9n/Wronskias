@@ -9,15 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class LoginActivity extends Activity {
 
-	private Button btnServerTest;
-	private Button btnWifiCfg;
-	private Button btnFastTest;
-//	private Button btnTempTest;
 	private ImageButton imageFastBtn, imageConfigBtn, imageServerBtn;
 	@SuppressLint("WorldReadableFiles")
 	@Override
@@ -25,20 +20,12 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 
-		btnServerTest = (Button) findViewById(R.id.btnServerTest);
-		btnWifiCfg = (Button) findViewById(R.id.btnWifiCfg);
-		btnFastTest = (Button) findViewById(R.id.btnFastTest);
-		
 		imageFastBtn = (ImageButton) findViewById(R.id.imageFastBtn);
 		imageConfigBtn = (ImageButton) findViewById(R.id.imageConfigBtn);
 		imageServerBtn = (ImageButton) findViewById(R.id.imageServerBtn);
 		imageFastBtn.getBackground().setAlpha(0);//0~255透明度值
 		imageConfigBtn.getBackground().setAlpha(0);//0~255透明度值
 		imageServerBtn.getBackground().setAlpha(0);//0~255透明度值
-		
-		btnServerTest.setOnClickListener(new ButtonClickEvent());
-		btnWifiCfg.setOnClickListener(new ButtonClickEvent());
-		btnFastTest.setOnClickListener(new ButtonClickEvent());
 		
 		imageFastBtn.setOnClickListener(new ButtonClickEvent());
 		imageConfigBtn.setOnClickListener(new ButtonClickEvent());
@@ -90,19 +77,7 @@ public class LoginActivity extends Activity {
 	class ButtonClickEvent implements View.OnClickListener {
 		public void onClick(View v) {
 
-			if (v == btnFastTest) {
-				Intent intent = new Intent(LoginActivity.this,WIfiFastTestActivity.class);  
-                startActivity(intent);	
-			}
-			else if(v == btnWifiCfg){
-				Intent intent = new Intent(LoginActivity.this,WiFiConfigActivity.class);  
-                startActivity(intent);				
-			}
-			else if(v == btnServerTest){
-                Intent intent = new Intent(LoginActivity.this,WifiServerConnectActivity.class);  
-                startActivity(intent);
-			}
-			else if(v == imageFastBtn){
+			if(v == imageFastBtn){
 				Intent intent = new Intent(LoginActivity.this,WIfiFastTestActivity.class);  
                 startActivity(intent);				
 			}
