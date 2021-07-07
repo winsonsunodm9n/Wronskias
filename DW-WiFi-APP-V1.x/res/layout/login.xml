@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bg_md"
-    tools:context="dw.wifi.server_test.WifiServerControlActivity" >
+    >
 
     <TextView
         android:id="@+id/textView4"
@@ -18,28 +18,28 @@
         android:textSize="35sp" />
 
     <ImageButton
-        android:id="@+id/imageConfigBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageFastBtn"
-        android:layout_below="@+id/imageFastBtn"
-        android:src="@drawable/config_l" />
-
-    <ImageButton
-        android:id="@+id/imageServerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageConfigBtn"
-        android:layout_below="@+id/imageConfigBtn"
-        android:src="@drawable/servertest_l" />
-
-    <ImageButton
         android:id="@+id/imageFastBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView4"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/config_l" />
+
+    <ImageButton
+        android:id="@+id/imageConfigBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageFastBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
         android:src="@drawable/fasttest_l" />
 
+	<ImageButton
+	    android:id="@+id/imageServerBtn"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignTop="@+id/imageConfigBtn"
+	    android:src="@drawable/servertest_l" />
+    
 </RelativeLayout>
