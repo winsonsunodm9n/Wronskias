@@ -23,8 +23,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/config_l" />
+        android:layout_marginTop="17dp"
+        android:src="@drawable/fasttest_l" />
+
+    <ImageButton
+        android:id="@+id/imageServerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageFastBtn"
+        android:src="@drawable/servertest_l" />
 
     <ImageButton
         android:id="@+id/imageConfigBtn"
@@ -32,14 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageFastBtn"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/fasttest_l" />
-
-	<ImageButton
-	    android:id="@+id/imageServerBtn"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentRight="true"
-	    android:layout_alignTop="@+id/imageConfigBtn"
-	    android:src="@drawable/servertest_l" />
+        android:src="@drawable/config_l" />
     
 </RelativeLayout>
