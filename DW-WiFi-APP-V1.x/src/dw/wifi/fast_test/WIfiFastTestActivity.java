@@ -1,13 +1,9 @@
 package dw.wifi.fast_test;
 
 import dw.wifi.common.Esp8266Connect;
-import dw.wifi.config.WiFiConfigActivity;
-import dw.wifi.main.LoginActivity;
 import dw.wifi.main.R;
-import dw.wifi.server_test.WifiServerConnectActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +19,7 @@ public class WIfiFastTestActivity extends Activity {
 	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
 	public Toast toast;
+	private boolean LedBtnFlag = false, BeepBtnFlag = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,13 +69,22 @@ public class WIfiFastTestActivity extends Activity {
 			@SuppressLint("ClickableViewAccessibility")
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if(event.getAction() == MotionEvent.ACTION_DOWN){       
-		               //重新设置按下时的背景图片  
-		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledlight));                              
-		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
-		                //再修改为抬起时的正常图片  
-		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledclose));     
-		            }  
+				if(event.getAction() == MotionEvent.ACTION_DOWN){   
+					//nothing 
+				}else if(event.getAction() == MotionEvent.ACTION_UP){   
+					LedBtnFlag = !LedBtnFlag;
+					if(LedBtnFlag == true)
+					{
+						cfgThread.Led_On();
+					   //重新设置按下时的背景图片  
+						((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledlight));
+					}
+					else
+					{
+						cfgThread.Led_Off();
+						((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledclose));
+					}
+				}  
 				return false; 
 			}       
 		});
@@ -87,11 +93,20 @@ public class WIfiFastTestActivity extends Activity {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				if(event.getAction() == MotionEvent.ACTION_DOWN){       
-		               //重新设置按下时的背景图片  
-		               ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepopen));                              
+		               //nothing                             
 		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
-		                //再修改为抬起时的正常图片  
-		                ((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepclose));     
+		            	BeepBtnFlag = !BeepBtnFlag;
+						if(BeepBtnFlag == true)
+						{
+							cfgThread.Beep_On();
+						   //重新设置按下时的背景图片  
+							((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepopen));
+						}
+						else
+						{
+							cfgThread.Beep_Off();
+							((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepclose));
+						}     
 		            }  
 				return false; 
 			}       
@@ -102,7 +117,7 @@ public class WIfiFastTestActivity extends Activity {
 			public void onClick(View v) {
 
 				if(v == imageLedBtn){
-					cfgThread.Led_On();
+//					cfgThread.Led_On();
 				}
 				else if(v == imageBeepBtn){
 				}
