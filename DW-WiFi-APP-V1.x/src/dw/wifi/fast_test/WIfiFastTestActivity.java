@@ -14,9 +14,9 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class WIfiFastTestActivity extends Activity {
-	private ToggleButton toggleLedBtn, toggleBeepBtn, toggleTestBtn;
+//	private ToggleButton toggleLedBtn, toggleBeepBtn, toggleTestBtn;
 	private ImageButton imageLedBtn, imageBeepBtn;
-	private ImageView imageLedView, imageBeepView;
+//	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
 	public Toast toast;
 	private boolean LedBtnFlag = false, BeepBtnFlag = false;
@@ -39,28 +39,28 @@ public class WIfiFastTestActivity extends Activity {
 		imageLedBtn.setOnClickListener(new ButtonClickEvent());
 		imageBeepBtn.setOnClickListener(new ButtonClickEvent());
 		
-		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
-		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
+//		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
+//		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
+//		
+//		imageLedView = (ImageView) findViewById(R.id.imageLedView);
+//		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
 		
-		imageLedView = (ImageView) findViewById(R.id.imageLedView);
-		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
-		
-		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
-		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
+//		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
+//		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		if(cfgThread.connect_state()){
-			toggleLedBtn.setEnabled(true);
-			toggleBeepBtn.setEnabled(true);
+			imageBeepBtn.setEnabled(true);
+			imageLedBtn.setEnabled(true);
 			toast.setText("连接wifi成功");
 			toast.show(); 
 		}
 		else{
-			toggleLedBtn.setEnabled(false);
-			toggleBeepBtn.setEnabled(false);
+			imageBeepBtn.setEnabled(false);
+			imageLedBtn.setEnabled(false);
 			toast.setText("连接失败 请重新尝试");
 			toast.show(); 
 		}
@@ -117,38 +117,39 @@ public class WIfiFastTestActivity extends Activity {
 			public void onClick(View v) {
 
 				if(v == imageLedBtn){
-//					cfgThread.Led_On();
+					//nothing
 				}
 				else if(v == imageBeepBtn){
+					//nothing
 				}
 			}
 		}
-	class ToggleButtonCheckedChangeEvent implements
-	ToggleButton.OnCheckedChangeListener {
-
-		@Override
-		public void onCheckedChanged(CompoundButton buttonView,
-				boolean isChecked) {
-			if (buttonView == toggleLedBtn) {
-				if (isChecked) {
-					cfgThread.Led_On();
-					imageLedView.setImageResource(R.drawable.ledlight);
-				} else {
-					cfgThread.Led_Off();
-					imageLedView.setImageResource(R.drawable.ledclose);
-				}
-			}
-			else if (buttonView == toggleBeepBtn) {
-				if (isChecked) {
-					cfgThread.Beep_On();
-					imageBeepView.setImageResource(R.drawable.beepopen);
-				} else {
-					cfgThread.Beep_Off();
-					imageBeepView.setImageResource(R.drawable.beepclose);
-				}
-			}
-		}
-	}
+//	class ToggleButtonCheckedChangeEvent implements
+//	ToggleButton.OnCheckedChangeListener {
+//
+//		@Override
+//		public void onCheckedChanged(CompoundButton buttonView,
+//				boolean isChecked) {
+//			if (buttonView == toggleLedBtn) {
+//				if (isChecked) {
+//					cfgThread.Led_On();
+//					imageLedView.setImageResource(R.drawable.ledlight);
+//				} else {
+//					cfgThread.Led_Off();
+//					imageLedView.setImageResource(R.drawable.ledclose);
+//				}
+//			}
+//			else if (buttonView == toggleBeepBtn) {
+//				if (isChecked) {
+//					cfgThread.Beep_On();
+//					imageBeepView.setImageResource(R.drawable.beepopen);
+//				} else {
+//					cfgThread.Beep_Off();
+//					imageBeepView.setImageResource(R.drawable.beepclose);
+//				}
+//			}
+//		}
+//	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

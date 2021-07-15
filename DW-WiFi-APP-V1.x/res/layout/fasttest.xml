@@ -4,65 +4,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_md" >
 
-    <ImageView
-        android:id="@+id/imageLedView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="19dp"
-        android:src="@drawable/ledclose" />
-
-    <ImageView
-        android:id="@+id/imageBeepView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageLedView"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/beepclose" />
-
-    <ToggleButton
-        android:id="@+id/toggleLedBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageLedView"
-        android:layout_below="@+id/imageLedView"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="16dp"
-        android:text="ToggleButton"
-        android:textOff="开灯"
-        android:textOn="关灯" />
-
-    <ToggleButton
-        android:id="@+id/toggleBeepBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/toggleLedBtn"
-        android:layout_alignBottom="@+id/toggleLedBtn"
-        android:layout_alignRight="@+id/imageBeepView"
-        android:layout_marginRight="36dp"
-        android:text="ToggleButton"
-        android:textOff="开蜂鸣器"
-        android:textOn="关蜂鸣器" />
-
     <ImageButton
         android:id="@+id/imageLedBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toggleLedBtn"
-        android:layout_marginRight="23dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
         android:layout_marginTop="24dp"
-        android:layout_toLeftOf="@+id/imageBeepView"
         android:src="@drawable/ledclose" />
 
     <ImageButton
         android:id="@+id/imageBeepBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/imageBeepView"
         android:layout_alignTop="@+id/imageLedBtn"
+        android:layout_toRightOf="@+id/imageLedBtn"
         android:src="@drawable/beepclose" />
 
 </RelativeLayout>
