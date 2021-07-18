@@ -48,4 +48,21 @@
         android:textOff="开蜂鸣器"
         android:textOn="关蜂鸣器" />
 
+    <ImageButton
+        android:id="@+id/imageBeepBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageLedBtn"
+        android:layout_toRightOf="@+id/imageLedBtn"
+        android:src="@drawable/beepclose" />
+
+    <ImageButton
+        android:id="@+id/imageLedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageLedView"
+        android:layout_below="@+id/toggleLedBtn"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/ledclose" />
+
 </RelativeLayout>

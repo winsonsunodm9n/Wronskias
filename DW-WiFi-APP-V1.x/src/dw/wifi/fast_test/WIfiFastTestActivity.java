@@ -7,16 +7,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class WIfiFastTestActivity extends Activity {
-//	private ToggleButton toggleLedBtn, toggleBeepBtn, toggleTestBtn;
 	private ImageButton imageLedBtn, imageBeepBtn;
-//	private ImageView imageLedView, imageBeepView;
 	Esp8266Connect cfgThread = null;
 	public Toast toast;
 	private boolean LedBtnFlag = false, BeepBtnFlag = false;
@@ -39,14 +34,6 @@ public class WIfiFastTestActivity extends Activity {
 		imageLedBtn.setOnClickListener(new ButtonClickEvent());
 		imageBeepBtn.setOnClickListener(new ButtonClickEvent());
 		
-//		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
-//		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
-//		
-//		imageLedView = (ImageView) findViewById(R.id.imageLedView);
-//		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
-		
-//		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
-//		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
@@ -99,7 +86,7 @@ public class WIfiFastTestActivity extends Activity {
 						if(BeepBtnFlag == true)
 						{
 							cfgThread.Beep_On();
-						   //重新设置按下时的背景图片  
+						   //设置开启时的图片  
 							((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepopen));
 						}
 						else
@@ -112,7 +99,6 @@ public class WIfiFastTestActivity extends Activity {
 			}       
 		});
 	}
-	// ----------------------------------------------------清除按钮、发送按钮
 	class ButtonClickEvent implements View.OnClickListener {
 			public void onClick(View v) {
 
@@ -124,32 +110,6 @@ public class WIfiFastTestActivity extends Activity {
 				}
 			}
 		}
-//	class ToggleButtonCheckedChangeEvent implements
-//	ToggleButton.OnCheckedChangeListener {
-//
-//		@Override
-//		public void onCheckedChanged(CompoundButton buttonView,
-//				boolean isChecked) {
-//			if (buttonView == toggleLedBtn) {
-//				if (isChecked) {
-//					cfgThread.Led_On();
-//					imageLedView.setImageResource(R.drawable.ledlight);
-//				} else {
-//					cfgThread.Led_Off();
-//					imageLedView.setImageResource(R.drawable.ledclose);
-//				}
-//			}
-//			else if (buttonView == toggleBeepBtn) {
-//				if (isChecked) {
-//					cfgThread.Beep_On();
-//					imageBeepView.setImageResource(R.drawable.beepopen);
-//				} else {
-//					cfgThread.Beep_Off();
-//					imageBeepView.setImageResource(R.drawable.beepclose);
-//				}
-//			}
-//		}
-//	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

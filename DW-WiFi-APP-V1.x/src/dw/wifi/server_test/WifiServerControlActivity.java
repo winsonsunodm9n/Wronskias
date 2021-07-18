@@ -11,17 +11,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class WifiServerControlActivity extends Activity {
+	private ImageButton imageLedBtn, imageBeepBtn;
 	private ToggleButton toggleLedBtn, toggleBeepBtn;
 	private ImageView imageLedView, imageBeepView;
 	HeartBeatThread myThread = null;
 	static BufferedReader reader = null;
 	static String line;
+	private boolean LedBtnFlag = false, BeepBtnFlag = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,6 +41,14 @@ public class WifiServerControlActivity extends Activity {
 //		myThread.connect(WifiServerActivity.this);
 //		ServerConnect.connect(WifiServerActivity.this);		
 //		ServerConnect.user_register(cmd, WifiServerActivity.this);
+		
+		imageLedBtn = (ImageButton) findViewById(R.id.imageLedBtn);
+		imageBeepBtn = (ImageButton) findViewById(R.id.imageBeepBtn);
+		imageLedBtn.getBackground().setAlpha(0);//0~255透明度值
+		imageBeepBtn.getBackground().setAlpha(0);//0~255透明度值
+		
+		imageLedBtn.setOnClickListener(new ButtonClickEvent());
+		imageBeepBtn.setOnClickListener(new ButtonClickEvent());
 		
 		imageLedView = (ImageView) findViewById(R.id.imageLedView);
 		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
@@ -60,6 +73,54 @@ public class WifiServerControlActivity extends Activity {
 //			Toast.makeText(WifiServerActivity.this,"注册成功", Toast.LENGTH_SHORT).show(); 
 			
 		}
+		
+		imageLedBtn.setOnTouchListener(new View.OnTouchListener(){            
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){   
+					//nothing 
+				}else if(event.getAction() == MotionEvent.ACTION_UP){   
+					LedBtnFlag = !LedBtnFlag;
+					if(LedBtnFlag == true)
+					{
+						myThread.Led_On();
+					   //重新设置按下时的背景图片  
+						((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledlight));
+					}
+					else
+					{
+						myThread.Led_Off();
+						((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.ledclose));
+					}
+				}  
+				return false; 
+			}       
+		});
+		imageBeepBtn.setOnTouchListener(new View.OnTouchListener(){            
+			@SuppressLint("ClickableViewAccessibility")
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getAction() == MotionEvent.ACTION_DOWN){       
+		               //nothing                             
+		            }else if(event.getAction() == MotionEvent.ACTION_UP){       
+		            	BeepBtnFlag = !BeepBtnFlag;
+						if(BeepBtnFlag == true)
+						{
+							myThread.Beep_On();
+						   //设置开启时的图片  
+							((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepopen));
+						}
+						else
+						{
+							myThread.Beep_Off();
+							((ImageButton)v).setImageDrawable(getResources().getDrawable(R.drawable.beepclose));
+						}     
+		            }  
+				return false; 
+			}       
+		});
+		
 		reader = myThread.get_reader();
 		Thread th = new Thread(new Runnable() { 
 
@@ -129,6 +190,17 @@ public class WifiServerControlActivity extends Activity {
 			}
 		}
 
+	}
+	class ButtonClickEvent implements View.OnClickListener {
+		public void onClick(View v) {
+
+			if(v == imageLedBtn){
+				//nothing
+			}
+			else if(v == imageBeepBtn){
+				//nothing
+			}
+		}
 	}
 	@Override
 	protected void onDestroy() {
