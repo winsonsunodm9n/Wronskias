@@ -50,14 +50,14 @@ public class WifiServerControlActivity extends Activity {
 		imageLedBtn.setOnClickListener(new ButtonClickEvent());
 		imageBeepBtn.setOnClickListener(new ButtonClickEvent());
 		
-		imageLedView = (ImageView) findViewById(R.id.imageLedView);
-		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
+//		imageLedView = (ImageView) findViewById(R.id.imageLedView);
+//		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
+//		
+//		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
+//		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
 		
-		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
-		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
-		
-		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
-		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
+//		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
+//		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		if(myThread == null){
 			System.exit(0); 
 		}
@@ -151,46 +151,46 @@ public class WifiServerControlActivity extends Activity {
 	            switch (msg.what) {
 	            case 1:
 	            	if(line.equals("No find sn.")){
-	            		toggleLedBtn.setEnabled(false);
-	            		toggleBeepBtn.setEnabled(false);
+	            		imageLedBtn.setEnabled(false);
+	            		imageBeepBtn.setEnabled(false);
 	            		Toast.makeText(WifiServerControlActivity.this,"未发现的SN号码", Toast.LENGTH_SHORT).show();
 	            	}
 	            	if(line.equals("User connect seccess!")){
-	            		toggleLedBtn.setEnabled(true);
-	            		toggleBeepBtn.setEnabled(true);
+	            		imageLedBtn.setEnabled(true);
+	            		imageBeepBtn.setEnabled(true);
 	            		Toast.makeText(WifiServerControlActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
 	            	}
 	                break;
 	            }
 	        }
 	    };
-	class ToggleButtonCheckedChangeEvent implements
-			ToggleButton.OnCheckedChangeListener {
-
-		@Override
-		public void onCheckedChanged(CompoundButton buttonView,
-				boolean isChecked) {
-			if (buttonView == toggleLedBtn) {
-				if (isChecked) {
-					myThread.Led_On();
-					imageLedView.setImageResource(R.drawable.ledlight);
-				} else {
-					myThread.Led_Off();
-					imageLedView.setImageResource(R.drawable.ledclose);
-				}
-			}
-			else if (buttonView == toggleBeepBtn) {
-				if (isChecked) {
-					myThread.Beep_On();
-					imageBeepView.setImageResource(R.drawable.beepopen);
-				} else {
-					myThread.Beep_Off();
-					imageBeepView.setImageResource(R.drawable.beepclose);
-				}
-			}
-		}
-
-	}
+//	class ToggleButtonCheckedChangeEvent implements
+//			ToggleButton.OnCheckedChangeListener {
+//
+//		@Override
+//		public void onCheckedChanged(CompoundButton buttonView,
+//				boolean isChecked) {
+//			if (buttonView == toggleLedBtn) {
+//				if (isChecked) {
+//					myThread.Led_On();
+//					imageLedView.setImageResource(R.drawable.ledlight);
+//				} else {
+//					myThread.Led_Off();
+//					imageLedView.setImageResource(R.drawable.ledclose);
+//				}
+//			}
+//			else if (buttonView == toggleBeepBtn) {
+//				if (isChecked) {
+//					myThread.Beep_On();
+//					imageBeepView.setImageResource(R.drawable.beepopen);
+//				} else {
+//					myThread.Beep_Off();
+//					imageBeepView.setImageResource(R.drawable.beepclose);
+//				}
+//			}
+//		}
+//
+//	}
 	class ButtonClickEvent implements View.OnClickListener {
 		public void onClick(View v) {
 
