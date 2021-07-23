@@ -21,8 +21,8 @@ import android.widget.ToggleButton;
 
 public class WifiServerControlActivity extends Activity {
 	private ImageButton imageLedBtn, imageBeepBtn;
-	private ToggleButton toggleLedBtn, toggleBeepBtn;
-	private ImageView imageLedView, imageBeepView;
+//	private ToggleButton toggleLedBtn, toggleBeepBtn;
+//	private ImageView imageLedView, imageBeepView;
 	HeartBeatThread myThread = null;
 	static BufferedReader reader = null;
 	static String line;
