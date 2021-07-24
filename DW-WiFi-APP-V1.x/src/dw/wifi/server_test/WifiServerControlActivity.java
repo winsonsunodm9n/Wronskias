@@ -13,16 +13,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class WifiServerControlActivity extends Activity {
 	private ImageButton imageLedBtn, imageBeepBtn;
-//	private ToggleButton toggleLedBtn, toggleBeepBtn;
-//	private ImageView imageLedView, imageBeepView;
 	HeartBeatThread myThread = null;
 	static BufferedReader reader = null;
 	static String line;
@@ -50,14 +45,6 @@ public class WifiServerControlActivity extends Activity {
 		imageLedBtn.setOnClickListener(new ButtonClickEvent());
 		imageBeepBtn.setOnClickListener(new ButtonClickEvent());
 		
-//		imageLedView = (ImageView) findViewById(R.id.imageLedView);
-//		imageBeepView = (ImageView) findViewById(R.id.imageBeepView);
-//		
-//		toggleLedBtn = (ToggleButton) findViewById(R.id.toggleLedBtn);
-//		toggleBeepBtn = (ToggleButton) findViewById(R.id.toggleBeepBtn);
-		
-//		toggleLedBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
-//		toggleBeepBtn.setOnCheckedChangeListener(new ToggleButtonCheckedChangeEvent());
 		if(myThread == null){
 			System.exit(0); 
 		}
@@ -164,33 +151,6 @@ public class WifiServerControlActivity extends Activity {
 	            }
 	        }
 	    };
-//	class ToggleButtonCheckedChangeEvent implements
-//			ToggleButton.OnCheckedChangeListener {
-//
-//		@Override
-//		public void onCheckedChanged(CompoundButton buttonView,
-//				boolean isChecked) {
-//			if (buttonView == toggleLedBtn) {
-//				if (isChecked) {
-//					myThread.Led_On();
-//					imageLedView.setImageResource(R.drawable.ledlight);
-//				} else {
-//					myThread.Led_Off();
-//					imageLedView.setImageResource(R.drawable.ledclose);
-//				}
-//			}
-//			else if (buttonView == toggleBeepBtn) {
-//				if (isChecked) {
-//					myThread.Beep_On();
-//					imageBeepView.setImageResource(R.drawable.beepopen);
-//				} else {
-//					myThread.Beep_Off();
-//					imageBeepView.setImageResource(R.drawable.beepclose);
-//				}
-//			}
-//		}
-//
-//	}
 	class ButtonClickEvent implements View.OnClickListener {
 		public void onClick(View v) {
 
